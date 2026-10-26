@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUMINA ORIGEN - Joyería Elegante</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Banner de mantenimiento -->
+<div class="maintenance-banner">
+    🚧 Sitio en construcción - Catálogo completo disponible próximamente
+</div>
+
+
+    <!-- Partículas flotantes decorativas -->
+    <div class="particles-container" id="particles"></div>
+
+    <!-- Barra superior -->
+    <div class="top-bar">
+        <div class="container">
+            <span><i class="fas fa-truck"></i> Envío gratis en compras mayores a $1,499 MXN</span>
+            <span><i class="fas fa-shield-alt"></i> Acero inoxidable y baño de oro 18K</span>
+            <div class="top-links">
+                <a href="#"><i class="fas fa-headset"></i> Atención al cliente</a>
+                <a href="pages/cuenta.html"><i class="fas fa-user"></i> Mi cuenta</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="nav-left">
+                <button class="mobile-menu-btn" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="active">INICIO</a></li>
+                    <li><a href="pages/tienda.html">TIENDA</a></li>
+                    <li><a href="pages/colecciones.html">COLECCIONES</a></li>
+                    <li><a href="pages/nosotros.html">NOSOTROS</a></li>
+                    <li><a href="pages/contacto.html">CONTACTO</a></li>                    
+                </ul>
+            </div>
+            
+            <!-- Logo -->
+            <div class="logo">                
+    <a href="index.html" class="logo-text">                    
+        <img src="images/2LogoLO.png" alt="Lumina Origen - Tu esencia, tu brillo, tu historia" class="logo-img">
+    </a>                
+</div>
+            
+            <div class="nav-right">
+                <a href="pages/favoritos.html" class="nav-icon" title="Mis Favoritos"><i class="far fa-heart"></i></a>
+                <button class="nav-icon cart-btn">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </button>
+                <button class="nav-icon search-btn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </nav>
+
+  <!-- Hero Section con Carrusel -->
+<section class="hero">
+    <div class="hero-carousel-container">
+        <!-- Carrusel de Imágenes -->
+        <div class="hero-carousel" id="heroCarousel">
+            <div class="hero-slide active">
+                <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=1200&q=80" alt="Collar Dorado Eterno" class="hero-image">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-slide">
+                <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=1200&q=80" alt="Aretes Minimalistas" class="hero-image">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-slide">
+                <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=1200&q=80" alt="Anillo Esencia" class="hero-image">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-slide">
+                <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=1200&q=80" alt="Pulsera Infinito" class="hero-image">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-slide">
+                <img src="https://images.unsplash.com/photo-1535632000639-7a39816fea63?w=1200&q=80" alt="Colección Nueva Luz" class="hero-image">
+                <div class="hero-overlay"></div>
+            </div>
+        </div>
+
+        <!-- Flechas de Navegación -->
+        <button class="carousel-arrow carousel-arrow-prev" onclick="changeSlide(-1)">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-arrow carousel-arrow-next" onclick="changeSlide(1)">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Contenido del Hero (sobre el carrusel) -->
+        <div class="hero-content">
+            <p class="hero-subtitle">✦ BELLEZA QUE TE ACOMPAÑA ✦</p>
+            <h1 class="hero-title shine-text">Descubre tu brillo<br>todos los días</h1>
+            <div class="ornament-divider">
+                <span class="ornament-icon">✦</span>
+            </div>
+            <p class="hero-description">
+                Joyería de acero inoxidable y baño de oro 18K.<br>
+                Diseñada para durar, creada para ti.
+            </p>
+            <a href="pages/tienda.html" class="btn-luxury">COMPRAR AHORA</a>
+        </div>
+
+        <!-- Indicadores de Puntos -->
+        <div class="carousel-dots">
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+    </div>
+</section>
+
+    <!-- Sección Inspiradora -->
+    <section class="inspiration-section">
+        <div class="container">
+            <p class="inspiration-quote fade-in-up">
+                Cada pieza cuenta una historia. Cada brillo refleja tu esencia. 
+                Cada detalle es un recuerdo que perdura.
+            </p>
+            <div class="ornament-divider">
+                <span class="ornament-icon">✦</span>
+            </div>
+            <p class="inspiration-author fade-in-up">— LUMINA ORIGEN</p>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <p class="section-subtitle">✦ POR QUÉ ELEGIRNOS ✦</p>
+                <h2 class="section-title decorated-title">Excelencia en cada detalle</h2>
+                <div class="ornament-divider">
+                    <span class="ornament-icon">✦</span>
+                </div>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-item elegant-card fade-in-up">
+                    <i class="fas fa-gem pulse-icon"></i>
+                    <h3>ACERO INOXIDABLE</h3>
+                    <p>Resistente al agua y al desgaste</p>
+                </div>
+                <div class="feature-item elegant-card fade-in-up" style="transition-delay: 0.2s;">
+                    <i class="fas fa-award pulse-icon"></i>
+                    <h3>CALIDAD PREMIUM</h3>
+                    <p>Baño de oro 18K de alta calidad</p>
+                </div>
+                <div class="feature-item elegant-card fade-in-up" style="transition-delay: 0.4s;">
+                    <i class="fas fa-gift pulse-icon"></i>
+                    <h3>EMPAQUE ELEGANTE</h3>
+                    <p>Listo para regalar</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- COLECCIÓN PREVIEW - EDICIÓN LIMITADA -->
+<section class="collections">
+    <div class="container">
+        <div class="section-header">
+            <p class="section-subtitle">✦ EDICIÓN LIMITADA ✦</p>
+            <h2 class="section-title">Nuestra Colección Preview</h2>
+            <div class="divider"></div>
+            <p style="margin-top: 15px; color: var(--color-text-light); font-size: 14px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Cada pieza de nuestra colección es <strong>irrepetible</strong>. 
+                Al ser piezas únicas, una vez vendidas no volverán a estar disponibles.
+            </p>
+        </div>
+        
+        <div class="collection-grid" style="grid-template-columns: repeat(4, 1fr); max-width: 1200px; margin: 40px auto 0; gap: 25px;">
+            
+            <!-- PRODUCTO 1: ANILLO SERPIENTE DORADA -->
+            <div class="collection-card gold-border-card">
+                <div class="unique-badge">✦ PIEZA ÚNICA ✦</div>
+                <img src="images/AniSer.png" alt="Anillo Serpiente Dorada" class="product-image-zoom" onerror="this.src='https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&q=80'">
+                <div class="collection-info">
+                    <h3>ANILLO SERPIENTE</h3>
+                    <p style="font-size: 12px; color: var(--color-text-light); margin: 8px 0;">Serpiente dorada con ojos verdes y microincrustaciones</p>
+                    <p style="font-weight: 700; color: var(--color-primary); margin: 10px 0; font-size: 18px;">$580 MXN</p>
+                    <button class="btn btn-primary add-to-cart-real" 
+                            data-id="anillo-001" 
+                            data-name="Anillo Serpiente Dorada" 
+                            data-price="580" 
+                            data-image="images/AniSer.png">
+                        AGREGAR AL CARRITO
+                    </button>
+                </div>
+            </div>
+
+            <!-- PRODUCTO 2: ANILLO CORAZÓN VERDE -->
+            <div class="collection-card gold-border-card">
+                <div class="unique-badge">✦ PIEZA ÚNICA ✦</div>
+                <img src="images/AniCorVer.png" alt="Anillo Corazón Verde" class="product-image-zoom" onerror="this.src='https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&q=80'">
+                <div class="collection-info">
+                    <h3>ANILLO CORAZÓN VERDE</h3>
+                    <p style="font-size: 12px; color: var(--color-text-light); margin: 8px 0;">Corazón verde con halo de incrustaciones brillantes</p>
+                    <p style="font-weight: 700; color: var(--color-primary); margin: 10px 0; font-size: 18px;">$580 MXN</p>
+                    <button class="btn btn-primary add-to-cart-real" 
+                            data-id="anillo-002" 
+                            data-name="Anillo Corazón Verde" 
+                            data-price="580" 
+                            data-image="images/AniCorVer.png">
+                        AGREGAR AL CARRITO
+                    </button>
+                </div>
+            </div>
+
+            <!-- PRODUCTO 3: ANILLO TIARA -->
+            <div class="collection-card gold-border-card">
+                <div class="unique-badge">✦ PIEZA ÚNICA ✦</div>
+                <img src="images/Anitiar2.png" alt="Anillo Tiara" class="product-image-zoom" onerror="this.src='https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&q=80'">
+                <div class="collection-info">
+                    <h3>ANILLO TIARA</h3>
+                    <p style="font-size: 12px; color: var(--color-text-light); margin: 8px 0;">Corona real con incrustaciones laterales</p>
+                    <p style="font-weight: 700; color: var(--color-primary); margin: 10px 0; font-size: 18px;">$580 MXN</p>
+                    <button class="btn btn-primary add-to-cart-real" 
+                            data-id="anillo-003" 
+                            data-name="Anillo Tiara" 
+                            data-price="580" 
+                            data-image="images/Anitiar2.png">
+                        AGREGAR AL CARRITO
+                    </button>
+                </div>
+            </div>
+
+            <!-- PRODUCTO 4: BRAZALETE HOJA DORADA -->
+            <div class="collection-card gold-border-card">
+                <div class="unique-badge">✦ PIEZA ÚNICA ✦</div>
+                <img src="images/Brazhojagde.png" alt="Brazalete Hoja Dorada" class="product-image-zoom" onerror="this.src='https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400&q=80'">
+                <div class="collection-info">
+                    <h3>BRAZALETE HOJA DORADA</h3>
+                    <p style="font-size: 12px; color: var(--color-text-light); margin: 8px 0;">Brazalete rígido tipo cuff con filigrana de hoja calada</p>
+                    <p style="font-weight: 700; color: var(--color-primary); margin: 10px 0; font-size: 18px;">$520 MXN</p>
+                    <button class="btn btn-primary add-to-cart-real" 
+                            data-id="brazalete-022" 
+                            data-name="Brazalete Hoja Dorada" 
+                            data-price="520" 
+                            data-image="images/Brazhojagde.png">
+                        AGREGAR AL CARRITO
+                    </button>
+                </div>
+            </div>
+
+            <!-- PRODUCTO 5: PULSERA FLOR BAGUETTE -->
+            <div class="collection-card gold-border-card">
+                <div class="unique-badge">✦ PIEZA ÚNICA ✦</div>
+                <img src="images/Pulesla.png" alt="Pulsera Flor Baguette" class="product-image-zoom" onerror="this.src='https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400&q=80'">
+                <div class="collection-info">
+                    <h3>PULSERA FLOR BAGUETTE</h3>
+                    <p style="font-size: 12px; color: var(--color-text-light); margin: 8px 0;">Brazalete rígido con eslabones baguette y flor central pavé</p>
+                    <p style="font-weight: 700; color: var(--color-primary); margin: 10px 0; font-size: 18px;">$720 MXN</p>
+                    <button class="btn btn-primary add-to-cart-real" 
+                            data-id="pulsera-028" 
+                            data-name="Pulsera Flor Baguette" 
+                            data-price="720" 
+                            data-image="images/Pulesla.png">
+                        AGREGAR AL CARRITO
+                    </button>
+                </div>
+            </div>
+
+            <!-- PRODUCTO 6: ARETES CASCADA ESFERAS -->
+            <div class="collection-card gold-border-card">
+                <div class="unique-badge">✦ PIEZA ÚNICA ✦</div>
+                <img src="images/AretCascEsfer.png" alt="Aretes Cascada Esferas" class="product-image-zoom" onerror="this.src='https://images.unsplash.com/photo-1630019852942-f89202989a51?w=400&q=80'">
+                <div class="collection-info">
+                    <h3>ARETES CASCADA ESFERAS</h3>
+                    <p style="font-size: 12px; color: var(--color-text-light); margin: 8px 0;">Aretes largos con cuatro esferas doradas en gradación</p>
+                    <p style="font-weight: 700; color: var(--color-primary); margin: 10px 0; font-size: 18px;">$520 MXN</p>
+                    <button class="btn btn-primary add-to-cart-real" 
+                            data-id="aretes-045" 
+                            data-name="Aretes Cascada Esferas" 
+                            data-price="520" 
+                            data-image="images/AretCascEsfer.png">
+                        AGREGAR AL CARRITO
+                    </button>
+                </div>
+            </div>
+
+            <!-- PRODUCTO 7: SET VIRGEN GUADALUPE -->
+            <div class="collection-card gold-border-card">
+                <div class="unique-badge">✦ PIEZA ÚNICA ✦</div>
+                <img src="images/DijeVirgAret.png" alt="Set Virgen Guadalupe" class="product-image-zoom" onerror="this.src='https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&q=80'">
+                <div class="collection-info">
+                    <h3>SET VIRGEN GUADALUPE</h3>
+                    <p style="font-size: 12px; color: var(--color-text-light); margin: 8px 0;">Dije corazón pavé con Virgen dorada + aretes de cristal</p>
+                    <p style="font-weight: 700; color: var(--color-primary); margin: 10px 0; font-size: 18px;">$480 MXN</p>
+                    <button class="btn btn-primary add-to-cart-real" 
+                            data-id="set-040" 
+                            data-name="Set Virgen Guadalupe" 
+                            data-price="480" 
+                            data-image="images/DijeVirgAret.png">
+                        AGREGAR AL CARRITO
+                    </button>
+                </div>
+            </div>
+
+            <!-- PRODUCTO 8: ARETES CORAZÓN NÁCAR -->
+            <div class="collection-card gold-border-card">
+                <div class="unique-badge">✦ PIEZA ÚNICA ✦</div>
+                <img src="images/AretCorNac2p.png" alt="Aretes Corazón Nácar" class="product-image-zoom" onerror="this.src='https://images.unsplash.com/photo-1630019852942-f89202989a51?w=400&q=80'">
+                <div class="collection-info">
+                    <h3>ARETES CORAZÓN NÁCAR</h3>
+                    <p style="font-size: 12px; color: var(--color-text-light); margin: 8px 0;">Corazón de nácar iridiscente con alas doradas y cristales</p>
+                    <p style="font-weight: 700; color: var(--color-primary); margin: 10px 0; font-size: 18px;">$480 MXN</p>
+                    <button class="btn btn-primary add-to-cart-real" 
+                            data-id="aretes-047" 
+                            data-name="Aretes Corazón Nácar" 
+                            data-price="480" 
+                            data-image="images/AretCorNac2p.png">
+                        AGREGAR AL CARRITO
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <!-- Testimonios -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <p class="section-subtitle">✦ VOCES DE NUESTROS CLIENTES ✦</p>
+                <h2 class="section-title decorated-title">Historias que brillan</h2>
+                <div class="ornament-divider">
+                    <span class="ornament-icon">✦</span>
+                </div>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 60px;">
+                <div class="testimonial-card fade-in-up">
+                    <p class="testimonial-text">"Mi collar de LUMINA se ha convertido en mi pieza favorita. La calidad es excepcional."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Cliente">
+                        <div class="testimonial-author-info">
+                            <h4>María González</h4>
+                            <p>Ciudad de México</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card fade-in-up" style="transition-delay: 0.2s;">
+                    <p class="testimonial-text">"Regalé unos aretes a mi esposa y quedó encantada. El empaque es hermoso."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Cliente">
+                        <div class="testimonial-author-info">
+                            <h4>Carlos Ramírez</h4>
+                            <p>Guadalajara</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card fade-in-up" style="transition-delay: 0.4s;">
+                    <p class="testimonial-text">"Llevo meses usando mi pulsera diariamente y sigue como nueva. Impresionante."</p>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Cliente">
+                        <div class="testimonial-author-info">
+                            <h4>Ana Martínez</h4>
+                            <p>Monterrey</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE BENEFICIOS -->
+    <section class="footer-info">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-item">
+                    <i class="fas fa-truck"></i>
+                    <div>
+                        <h4>ENVÍOS A TODO MÉXICO</h4>
+                        <p>Rápidos y seguros</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-credit-card"></i>
+                    <div>
+                        <h4>PAGA DE FORMA SEGURA</h4>
+                        <p>Tarjetas, OXXO, SPEI y más</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-exchange-alt"></i>
+                    <div>
+                        <h4>CAMBIOS Y DEVOLUCIONES</h4>
+                        <p>Fáciles y sin complicaciones</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <div>
+                        <h4>GARANTÍA DE 90 DÍAS</h4>
+                        <p>Tu satisfacción es nuestra prioridad</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER PRINCIPAL -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <span class="footer-brand-main">LUMINA</span>
+                        <span class="footer-brand-sub">ORIGEN</span>
+                    </div>
+                    <p>Joyería elegante diseñada para acompañarte en cada momento especial. Tu esencia, tu brillo. tu historia...</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>TIENDA</h4>
+                    <ul>
+                        <li><a href="pages/nuevos-arrivos.html">Nuevos arrivos</a></li>
+                        <li><a href="pages/tienda.html">Más vendidos</a></li>
+                        <li><a href="pages/collares.html">Collares</a></li>
+                        <li><a href="pages/aretes.html">Aretes</a></li>
+                        <li><a href="pages/anillos.html">Anillos</a></li>
+                        <li><a href="pages/pulseras.html">Pulseras</a></li>
+                        <li><a href="pages/cadenas.html">Cadenas</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>AYUDA</h4>
+                    <ul>
+                        <li><a href="#">Preguntas frecuentes</a></li>
+                        <li><a href="#">Envíos y entregas</a></li>
+                        <li><a href="#">Cambios y devoluciones</a></li>
+                        <li><a href="#">Guía de tallas</a></li>
+                        <li><a href="#">Cuidado de joyas</a></li>
+                        <li><a href="pages/privacidad.html">Aviso de Privacidad</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>CONTACTO</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> hola@lumina.com</li>
+                        <li><i class="fas fa-phone"></i> 5512345678</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Ciudad de México</li>
+                    </ul>
+                    <div class="newsletter">
+                        <p>Suscríbete a nuestro newsletter</p>
+                        <form>
+                            <input type="email" placeholder="Tu email">
+                            <button type="submit"><i class="fas fa-arrow-right"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 LUMINA ORIGEN. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODALES GLOBALES (Carrito y Búsqueda) -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Tu Carrito</h3>
+            <button class="cart-close" id="cartClose"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items">
+            <div class="cart-empty">
+                <i class="fas fa-shopping-bag"></i>
+                <p>Tu carrito está vacío</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">$0 MXN</span>
+            </div>
+            <button class="cart-checkout-btn">FINALIZAR COMPRA POR WHATSAPP</button>
+        </div>
+    </div>
+
+    <!-- MODAL LIGHTBOX PARA IMÁGENES DE PRODUCTOS -->
+<div class="lightbox-modal" id="lightboxModal">
+    <div class="lightbox-content">
+        <button class="lightbox-close" id="lightboxClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <img src="" alt="Vista ampliada" class="lightbox-image" id="lightboxImage">
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+</div>
+
+    <div class="search-modal" id="searchModal">
+        <div class="search-modal-content">
+            <button class="search-close" id="searchClose"><i class="fas fa-times"></i></button>
+            <div class="search-header">
+                <h2>¿Qué estás buscando?</h2>
+                <div class="search-input-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="Busca collares, aretes, anillos..." autocomplete="off">
+                </div>
+            </div>
+            <div class="search-results" id="searchResults">
+                <div class="search-empty"><i class="fas fa-search"></i><p>Escribe para buscar productos</p></div>
+            </div>
+            <div class="search-suggestions">
+                <p>Búsquedas populares:</p>
+                <div class="suggestion-tags">
+                    <span class="suggestion-tag" data-search="collar">Collares</span>
+                    <span class="suggestion-tag" data-search="aretes">Aretes</span>
+                    <span class="suggestion-tag" data-search="anillo">Anillos</span>
+                    <span class="suggestion-tag" data-search="pulsera">Pulseras</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="https://wa.me/5215512345678" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

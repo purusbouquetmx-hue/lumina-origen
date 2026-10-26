@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - LUMINA ORIGEN</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+    .page-header {
+        background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-gold-light) 100%);
+        padding: 80px 0 60px;
+        text-align: center;
+    }
+    .page-header h1 {
+        font-family: var(--font-serif);
+        font-size: 48px;
+        margin-bottom: 15px;
+    }
+    .page-header .tagline {
+        font-family: var(--font-serif);
+        font-size: 20px;
+        color: var(--color-secondary);
+        font-style: italic;
+    }
+    .contact-section { padding: 100px 0; }
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 80px;
+    }
+    .contact-info h2 {
+        font-family: var(--font-serif);
+        font-size: 32px;
+        margin-bottom: 30px;
+    }
+    .contact-info > p {
+        font-size: 16px;
+        line-height: 1.8;
+        color: var(--color-text-light);
+        margin-bottom: 40px;
+    }
+    .contact-methods { margin-bottom: 40px; }
+    .contact-method {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+    .contact-method i {
+        width: 50px;
+        height: 50px;
+        background: var(--color-gold-light);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-secondary);
+        font-size: 20px;
+        flex-shrink: 0;
+    }
+    .contact-method div h3 {
+        font-size: 16px;
+        margin-bottom: 5px;
+        font-weight: 600;
+    }
+    .contact-method div p {
+        font-size: 14px;
+        color: var(--color-text-light);
+    }
+    .social-contact {
+        padding-top: 30px;
+        border-top: 1px solid var(--color-border);
+    }
+    .social-contact h3 {
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+    .social-links-contact {
+        display: flex;
+        gap: 15px;
+    }
+    .social-links-contact a {
+        width: 45px;
+        height: 45px;
+        border: 1px solid var(--color-border);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+    }
+    .social-links-contact a:hover {
+        background: var(--color-secondary);
+        border-color: var(--color-secondary);
+        color: var(--color-white);
+    }
+    .contact-form {
+        background: var(--color-white);
+        padding: 50px;
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+    }
+    .contact-form h2 {
+        font-family: var(--font-serif);
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+    .contact-form > p {
+        color: var(--color-text-light);
+        margin-bottom: 30px;
+    }
+    .form-group { margin-bottom: 25px; }
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid var(--color-border);
+        border-radius: 5px;
+        font-family: var(--font-sans);
+        font-size: 15px;
+        transition: var(--transition);
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+        outline: none;
+        border-color: var(--color-secondary);
+    }
+    .form-group textarea {
+        min-height: 150px;
+        resize: vertical;
+    }
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    .submit-btn {
+        width: 100%;
+        padding: 15px;
+        background: var(--color-primary);
+        color: var(--color-white);
+        border: none;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        cursor: pointer;
+        transition: var(--transition);
+    }
+    .submit-btn:hover {
+        background: var(--color-secondary);
+    }
+    .map-section {
+        padding: 0 0 100px;
+    }
+    .map-container {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        height: 400px;
+    }
+    .map-container iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+    @media (max-width: 992px) {
+        .contact-grid { grid-template-columns: 1fr; gap: 60px; }
+        .form-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+        .contact-form { padding: 30px; }
+    }
+</style>
+</head>
+<body>
+    <!-- Barra superior -->
+<div class="top-bar">
+    <div class="container">
+        <span><i class="fas fa-truck"></i> Envío gratis en compras mayores a $1,499 MXN</span>
+        <span><i class="fas fa-shield-alt"></i> Acero inoxidable y baño de oro 18K</span>
+        <div class="top-links">
+            <a href="#"><i class="fas fa-headset"></i> Atención al cliente</a>
+            <a href="../pages/cuenta.html"><i class="fas fa-user"></i> Mi cuenta</a>
+        </div>
+    </div>
+</div>
+
+<!-- Navegación -->
+<nav class="navbar">
+    <div class="container nav-container">
+        <div class="nav-left">
+            <button class="mobile-menu-btn" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../index.html">INICIO</a></li>
+                <li><a href="tienda.html">TIENDA</a></li>
+                <li><a href="colecciones.html">COLECCIONES</a></li>
+                <li><a href="nosotros.html">NOSOTROS</a></li>
+                <li><a href="contacto.html">CONTACTO</a></li>                    
+            </ul>
+        </div>
+        
+        <!-- Logo con IMAGEN -->
+        <div class="logo">                
+            <a href="../index.html" class="logo-text">                    
+                <img src="../images/2LogoLO.png" alt="Lumina Origen" class="logo-img">
+            </a>                
+        </div>
+        
+        <div class="nav-right">
+            <a href="favoritos.html" class="nav-icon active" title="Mis Favoritos"><i class="fas fa-heart"></i></a>
+            <button class="nav-icon cart-btn">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="cart-count">0</span>
+            </button>
+            <button class="nav-icon search-btn"><i class="fas fa-search"></i></button>
+        </div>
+    </div>
+</nav>
+    <!-- Navbar -->
+    
+    <header class="page-header">
+        <div class="container">
+            <h1>CONTACTO</h1>
+            <p class="tagline">Tu esencia, tu brillo. tu historia...</p>
+            <div class="breadcrumb">
+                <a href="../index.html">Inicio</a> / Contacto
+            </div>
+        </div>
+    </header>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Estamos aquí para ti</h2>
+                    <p>¿Tienes preguntas? Nos encantaría escucharte. Contáctanos y te responderemos lo antes posible.</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email</h3>
+                                <p>hola@lumina.com</p>
+                                <p>ventas@lumina.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h3>Teléfono / WhatsApp</h3>
+                                <p>+52 55 1234 5678</p>
+                                <p>Lun - Vie: 9:00 - 18:00</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h3>Ubicación</h3>
+                                <p>Ciudad de México, México</p>
+                                <p>Envíos a todo el país</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-contact">
+                        <h3>Síguenos</h3>
+                        <div class="social-links-contact">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                            <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h2>Envíanos un mensaje</h2>
+                    <p>Completa el formulario y nos pondremos en contacto contigo.</p>
+                    
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nombre">Nombre *</label>
+                                <input type="text" id="nombre" name="nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="apellido">Apellido *</label>
+                                <input type="text" id="apellido" name="apellido" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono">Teléfono</label>
+                                <input type="tel" id="telefono" name="telefono">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="asunto">Asunto *</label>
+                            <select id="asunto" name="asunto" required>
+                                <option value="">Selecciona un asunto</option>
+                                <option value="informacion">Información general</option>
+                                <option value="pedido">Consulta sobre pedido</option>
+                                <option value="cambio">Cambios y devoluciones</option>
+                                <option value="personalizacion">Personalización</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje *</label>
+                            <textarea id="mensaje" name="mensaje" required placeholder="Cuéntanos cómo podemos ayudarte..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">ENVIAR MENSAJE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="container">
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24165.76337431689!2d-99.16869245!3d19.4270205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff35f5bd1563%3A0x6c366f0e2de02ff7!2sEl%20%C3%81ngel%20de%20la%20Independencia!5e0!3m2!1ses!2smx!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+    <!-- Modal de Búsqueda -->
+<div class="search-modal" id="searchModal">
+    <div class="search-modal-content">
+        <button class="search-close" id="searchClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="search-header">
+            <h2>¿Qué estás buscando?</h2>
+            <div class="search-input-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="searchInput" placeholder="Busca collares, aretes, anillos..." autocomplete="off">
+            </div>
+        </div>
+        <div class="search-results" id="searchResults">
+            <div class="search-empty">
+                <i class="fas fa-search"></i>
+                <p>Escribe para buscar productos</p>
+            </div>
+        </div>
+        <div class="search-suggestions">
+            <p>Búsquedas populares:</p>
+            <div class="suggestion-tags">
+                <span class="suggestion-tag" data-search="collar">Collares</span>
+                <span class="suggestion-tag" data-search="aretes">Aretes</span>
+                <span class="suggestion-tag" data-search="anillo">Anillos</span>
+                <span class="suggestion-tag" data-search="pulsera">Pulseras</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- SECCIÓN DE BENEFICIOS (Solo aparece una vez) -->
+<section class="footer-info">
+    <div class="container">
+        <div class="info-grid">
+            <div class="info-item">
+                <i class="fas fa-truck"></i>
+                <div>
+                    <h4>ENVÍOS A TODO MÉXICO</h4>
+                    <p>Rápidos y seguros</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-credit-card"></i>
+                <div>
+                    <h4>PAGA DE FORMA SEGURA</h4>
+                    <p>Tarjetas, OXXO, SPEI y más</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-exchange-alt"></i>
+                <div>
+                    <h4>CAMBIOS Y DEVOLUCIONES</h4>
+                    <p>Fáciles y sin complicaciones</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-shield-alt"></i>
+                <div>
+                    <h4>GARANTÍA DE 90 DÍAS</h4>
+                    <p>Tu satisfacción es nuestra prioridad</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER PRINCIPAL -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            
+            <!-- COLUMNA 1: MARCA -->
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <span class="footer-brand-main">LUMINA</span>
+                    <span class="footer-brand-sub">ORIGEN</span>
+                </div>
+                <p>Joyería elegante diseñada para acompañarte en cada momento especial. Tu esencia, tu brillo. tu historia...</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <!-- COLUMNA 2: TIENDA -->
+             <div class="footer-col">
+                    <h4>TIENDA</h4>
+                    <ul>
+                        <li><a href="tienda.html">Nuevos arrivals</a></li>
+                        <li><a href="mas-vendidos.html">Más vendidos</a></li>
+                        <li><a href="collares.html">Collares</a></li>
+                        <li><a href="aretes.html">Aretes</a></li>
+                        <li><a href="anillos.html">Anillos</a></li>
+                        <li><a href="pulseras.html">Pulseras</a></li>
+                        <li><a href="cadenas.html">Cadenas</a></li>
+                    </ul>
+                </div>
+
+            <!-- COLUMNA 3: AYUDA (Con Aviso de Privacidad) -->
+            <div class="footer-col">
+                <h4>AYUDA</h4>
+                <ul>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                    <li><a href="#">Envíos y entregas</a></li>
+                    <li><a href="#">Cambios y devoluciones</a></li>
+                    <li><a href="#">Guía de tallas</a></li>
+                    <li><a href="#">Cuidado de joyas</a></li>
+                    <li><a href="pages/privacidad.html">Aviso de Privacidad</a></li>
+                </ul>
+            </div>
+
+            <!-- COLUMNA 4: CONTACTO Y NEWSLETTER -->
+            <div class="footer-col">
+                <h4>CONTACTO</h4>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> hola@lumina.com</li>
+                    <li><i class="fas fa-phone"></i> +52 55 1234 5678</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Ciudad de México</li>
+                </ul>
+                <div class="newsletter">
+                    <p>Suscríbete a nuestro newsletter</p>
+                    <form>
+                        <input type="email" placeholder="Tu email">
+                        <button type="submit"><i class="fas fa-arrow-right"></i></button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        
+        <!-- COPYRIGHT -->
+        <div class="footer-bottom">
+            <p>&copy; 2026 LUMINA ORIGEN. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- MODALES GLOBALES (Carrito y Búsqueda) -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+        <h3>Tu Carrito</h3>
+        <button class="cart-close" id="cartClose"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cart-items">
+        <div class="cart-empty">
+            <i class="fas fa-shopping-bag"></i>
+            <p>Tu carrito está vacío</p>
+        </div>
+    </div>
+    <div class="cart-footer">
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cartTotal">$0 MXN</span>
+        </div>
+        <button class="cart-checkout-btn">FINALIZAR COMPRA</button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal">
+    <div class="search-modal-content">
+        <button class="search-close" id="searchClose"><i class="fas fa-times"></i></button>
+        <div class="search-header">
+            <h2>¿Qué estás buscando?</h2>
+            <div class="search-input-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="searchInput" placeholder="Busca collares, aretes, anillos..." autocomplete="off">
+            </div>
+        </div>
+        <div class="search-results" id="searchResults">
+            <div class="search-empty"><i class="fas fa-search"></i><p>Escribe para buscar productos</p></div>
+        </div>
+        <div class="search-suggestions">
+            <p>Búsquedas populares:</p>
+            <div class="suggestion-tags">
+                <span class="suggestion-tag" data-search="collar">Collares</span>
+                <span class="suggestion-tag" data-search="aretes">Aretes</span>
+                <span class="suggestion-tag" data-search="anillo">Anillos</span>
+                <span class="suggestion-tag" data-search="pulsera">Pulseras</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="https://wa.me/5215512345678" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

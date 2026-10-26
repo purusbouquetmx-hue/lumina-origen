@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros - LUMINA ORIGEN</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   
+    <style>
+    .page-header {
+        background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-gold-light) 100%);
+        padding: 80px 0 60px;
+        text-align: center;
+    }
+    .page-header h1 {
+        font-family: var(--font-serif);
+        font-size: 48px;
+        margin-bottom: 15px;
+    }
+    .page-header .tagline {
+        font-family: var(--font-serif);
+        font-size: 20px;
+        color: var(--color-secondary);
+        font-style: italic;
+    }
+    .about-section { padding: 100px 0; }
+    .about-intro {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 80px;
+    }
+    .about-intro h2 {
+        font-family: var(--font-serif);
+        font-size: 36px;
+        margin-bottom: 25px;
+    }
+    .about-intro p {
+        font-size: 18px;
+        line-height: 1.8;
+        color: var(--color-text-light);
+    }
+    .story-section {
+        background: var(--color-cream);
+        padding: 100px 0;
+    }
+    .story-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+    }
+    .story-image { position: relative; }
+    .story-image img {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+    }
+    .story-image::before {
+        content: '';
+        position: absolute;
+        top: -20px;
+        left: -20px;
+        width: 100%;
+        height: 100%;
+        border: 2px solid var(--color-secondary);
+        border-radius: 10px;
+        z-index: -1;
+    }
+    .story-content h2 {
+        font-family: var(--font-serif);
+        font-size: 36px;
+        margin-bottom: 30px;
+    }
+    .story-content p {
+        font-size: 16px;
+        line-height: 1.8;
+        color: var(--color-text-light);
+        margin-bottom: 20px;
+    }
+    .values-section { padding: 100px 0; }
+    .values-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        margin-top: 60px;
+    }
+    .value-card {
+        text-align: center;
+        padding: 40px 30px;
+        background: var(--color-white);
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+    }
+    .value-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    }
+    .value-card i {
+        font-size: 48px;
+        color: var(--color-secondary);
+        margin-bottom: 25px;
+    }
+    .value-card h3 {
+        font-family: var(--font-serif);
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+    .commitment-section {
+        padding: 100px 0;
+        text-align: center;
+    }
+    .commitment-stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+        margin-top: 60px;
+    }
+    .stat-item h3 {
+        font-family: var(--font-serif);
+        font-size: 48px;
+        color: var(--color-secondary);
+        margin-bottom: 10px;
+    }
+    @media (max-width: 992px) {
+        .story-grid { grid-template-columns: 1fr; }
+        .values-grid { grid-template-columns: 1fr; }
+        .commitment-stats { grid-template-columns: repeat(2, 1fr); }
+    }
+</style>
+</head>
+
+<!-- Carrito Lateral -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+        <h3>Tu Carrito</h3>
+        <button class="cart-close" id="cartClose"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cart-items">
+        <div class="cart-empty">
+            <i class="fas fa-shopping-bag"></i>
+            <p>Tu carrito está vacío</p>
+        </div>
+    </div>
+    <div class="cart-footer">
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cartTotal">$0 MXN</span>
+        </div>
+        <button class="cart-checkout-btn">FINALIZAR COMPRA</button>
+    </div>
+</div>
+
+<!-- Modal de Búsqueda -->
+<div class="search-modal" id="searchModal">
+    <div class="search-modal-content">
+        <button class="search-close" id="searchClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="search-header">
+            <h2>¿Qué estás buscando?</h2>
+            <div class="search-input-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="searchInput" placeholder="Busca collares, aretes, anillos..." autocomplete="off">
+            </div>
+        </div>
+        <div class="search-results" id="searchResults">
+            <div class="search-empty">
+                <i class="fas fa-search"></i>
+                <p>Escribe para buscar productos</p>
+            </div>
+        </div>
+        <div class="search-suggestions">
+            <p>Búsquedas populares:</p>
+            <div class="suggestion-tags">
+                <span class="suggestion-tag" data-search="collar">Collares</span>
+                <span class="suggestion-tag" data-search="aretes">Aretes</span>
+                <span class="suggestion-tag" data-search="anillo">Anillos</span>
+                <span class="suggestion-tag" data-search="pulsera">Pulseras</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<body>
+    <!-- Barra superior -->
+<div class="top-bar">
+    <div class="container">
+        <span><i class="fas fa-truck"></i> Envío gratis en compras mayores a $1,499 MXN</span>
+        <span><i class="fas fa-shield-alt"></i> Acero inoxidable y baño de oro 18K</span>
+        <div class="top-links">
+            <a href="#"><i class="fas fa-headset"></i> Atención al cliente</a>
+            <a href="../pages/cuenta.html"><i class="fas fa-user"></i> Mi cuenta</a>
+        </div>
+    </div>
+</div>
+
+<!-- Navegación -->
+<nav class="navbar">
+    <div class="container nav-container">
+        <div class="nav-left">
+            <button class="mobile-menu-btn" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../index.html">INICIO</a></li>
+                <li><a href="tienda.html">TIENDA</a></li>
+                <li><a href="colecciones.html">COLECCIONES</a></li>
+                <li><a href="nosotros.html">NOSOTROS</a></li>
+                <li><a href="contacto.html">CONTACTO</a></li>                    
+            </ul>
+        </div>
+        
+        <!-- Logo con IMAGEN -->
+        <div class="logo">                
+            <a href="../index.html" class="logo-text">                    
+                <img src="../images/2LogoLO.png" alt="Lumina Origen" class="logo-img">
+            </a>                
+        </div>
+        
+        <div class="nav-right">
+            <a href="favoritos.html" class="nav-icon active" title="Mis Favoritos"><i class="fas fa-heart"></i></a>
+            <button class="nav-icon cart-btn">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="cart-count">0</span>
+            </button>
+            <button class="nav-icon search-btn"><i class="fas fa-search"></i></button>
+        </div>
+    </div>
+</nav>
+    <!-- Navbar igual que las otras páginas -->
+    
+    <header class="page-header">
+        <div class="container">
+            <h1>NOSOTROS</h1>
+            <p class="tagline">Tu esencia, tu brillo. tu historia...</p>
+            <div class="breadcrumb">
+                <a href="../index.html">Inicio</a> / Nosotros
+            </div>
+        </div>
+    </header>
+
+    <section class="about-section">
+        <div class="container">
+            <div class="about-intro">
+                <h2>Creemos en la belleza que nace de tu esencia</h2>
+                <p>LUMINA ORIGEN nace del deseo de crear joyas que no solo adornen, sino que cuenten historias. Cada pieza es un reflejo de tu singularidad.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="story-section">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-image">
+                    <img src="https://images.unsplash.com/photo-1611085583191-a3b581a26f95?w=800&q=80" alt="Nuestra Historia">
+                </div>
+                <div class="story-content">
+                    <h2>Nuestra Historia</h2>
+                    <p>Todo comenzó con una visión simple pero poderosa: crear joyería que trascienda las tendencias pasajeras y se convierta en parte de tu identidad.</p>
+                    <p>Utilizamos acero inoxidable de la más alta calidad y baño de oro 18K, diseñadas para resistir el paso del tiempo tanto como tus recuerdos más preciados.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="values-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle">NUESTROS PILARES</p>
+                <h2 class="section-title">Lo que nos define</h2>
+                <div class="divider"></div>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>AUTENTICIDAD</h3>
+                    <p>Celebramos la singularidad de cada persona.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-gem"></i>
+                    <h3>CALIDAD</h3>
+                    <p>Materiales premium y controles rigurosos.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>SOSTENIBILIDAD</h3>
+                    <p>Comprometidos con el planeta.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>PASIÓN</h3>
+                    <p>Amor por la artesanía en cada detalle.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-users"></i>
+                    <h3>COMUNIDAD</h3>
+                    <p>Relaciones que trascienden la venta.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-infinity"></i>
+                    <h3>ATEMPORALIDAD</h3>
+                    <p>Diseños clásicos que perduran.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="commitment-section">
+        <div class="container">
+            <div class="commitment-content">
+                <h2>Nuestro Compromiso</h2>
+                <p>En LUMINA ORIGEN no solo creamos joyas, construimos conexiones.</p>
+            </div>
+            
+            <div class="commitment-stats">
+                <div class="stat-item">
+                    <h3>5+</h3>
+                    <p>Años de experiencia</p>
+                </div>
+                <div class="stat-item">
+                    <h3>10k+</h3>
+                    <p>Clientes felices</p>
+                </div>
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>Diseños únicos</p>
+                </div>
+                <div class="stat-item">
+                    <h3>98%</h3>
+                    <p>Clientes satisfechos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE BENEFICIOS (Solo aparece una vez) -->
+<section class="footer-info">
+    <div class="container">
+        <div class="info-grid">
+            <div class="info-item">
+                <i class="fas fa-truck"></i>
+                <div>
+                    <h4>ENVÍOS A TODO MÉXICO</h4>
+                    <p>Rápidos y seguros</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-credit-card"></i>
+                <div>
+                    <h4>PAGA DE FORMA SEGURA</h4>
+                    <p>Tarjetas, OXXO, SPEI y más</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-exchange-alt"></i>
+                <div>
+                    <h4>CAMBIOS Y DEVOLUCIONES</h4>
+                    <p>Fáciles y sin complicaciones</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-shield-alt"></i>
+                <div>
+                    <h4>GARANTÍA DE 90 DÍAS</h4>
+                    <p>Tu satisfacción es nuestra prioridad</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER PRINCIPAL -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            
+            <!-- COLUMNA 1: MARCA -->
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <span class="footer-brand-main">LUMINA</span>
+                    <span class="footer-brand-sub">ORIGEN</span>
+                </div>
+                <p>Joyería elegante diseñada para acompañarte en cada momento especial. Tu esencia, tu brillo. tu historia...</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <!-- COLUMNA 2: TIENDA -->
+             <div class="footer-col">
+                    <h4>TIENDA</h4>
+                    <ul>
+                        <li><a href="tienda.html">Nuevos arrivals</a></li>
+                        <li><a href="mas-vendidos.html">Más vendidos</a></li>
+                        <li><a href="collares.html">Collares</a></li>
+                        <li><a href="aretes.html">Aretes</a></li>
+                        <li><a href="anillos.html">Anillos</a></li>
+                        <li><a href="pulseras.html">Pulseras</a></li>
+                        <li><a href="cadenas.html">Cadenas</a></li>
+                    </ul>
+                </div>
+
+            <!-- COLUMNA 3: AYUDA (Con Aviso de Privacidad) -->
+            <div class="footer-col">
+                <h4>AYUDA</h4>
+                <ul>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                    <li><a href="#">Envíos y entregas</a></li>
+                    <li><a href="#">Cambios y devoluciones</a></li>
+                    <li><a href="#">Guía de tallas</a></li>
+                    <li><a href="#">Cuidado de joyas</a></li>
+                    <li><a href="pages/privacidad.html">Aviso de Privacidad</a></li>
+                </ul>
+            </div>
+
+            <!-- COLUMNA 4: CONTACTO Y NEWSLETTER -->
+            <div class="footer-col">
+                <h4>CONTACTO</h4>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> hola@lumina.com</li>
+                    <li><i class="fas fa-phone"></i> +52 55 1234 5678</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Ciudad de México</li>
+                </ul>
+                <div class="newsletter">
+                    <p>Suscríbete a nuestro newsletter</p>
+                    <form>
+                        <input type="email" placeholder="Tu email">
+                        <button type="submit"><i class="fas fa-arrow-right"></i></button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        
+        <!-- COPYRIGHT -->
+        <div class="footer-bottom">
+            <p>&copy; 2026 LUMINA ORIGEN. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- MODALES GLOBALES (Carrito y Búsqueda) -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+        <h3>Tu Carrito</h3>
+        <button class="cart-close" id="cartClose"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cart-items">
+        <div class="cart-empty">
+            <i class="fas fa-shopping-bag"></i>
+            <p>Tu carrito está vacío</p>
+        </div>
+    </div>
+    <div class="cart-footer">
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cartTotal">$0 MXN</span>
+        </div>
+        <button class="cart-checkout-btn">FINALIZAR COMPRA</button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal">
+    <div class="search-modal-content">
+        <button class="search-close" id="searchClose"><i class="fas fa-times"></i></button>
+        <div class="search-header">
+            <h2>¿Qué estás buscando?</h2>
+            <div class="search-input-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="searchInput" placeholder="Busca collares, aretes, anillos..." autocomplete="off">
+            </div>
+        </div>
+        <div class="search-results" id="searchResults">
+            <div class="search-empty"><i class="fas fa-search"></i><p>Escribe para buscar productos</p></div>
+        </div>
+        <div class="search-suggestions">
+            <p>Búsquedas populares:</p>
+            <div class="suggestion-tags">
+                <span class="suggestion-tag" data-search="collar">Collares</span>
+                <span class="suggestion-tag" data-search="aretes">Aretes</span>
+                <span class="suggestion-tag" data-search="anillo">Anillos</span>
+                <span class="suggestion-tag" data-search="pulsera">Pulseras</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a href="https://wa.me/5215512345678" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

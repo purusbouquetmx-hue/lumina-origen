@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulseras - LUMINA ORIGEN</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Carrito Lateral -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Tu Carrito</h3>
+            <button class="cart-close" id="cartClose"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items">
+            <div class="cart-empty">
+                <i class="fas fa-shopping-bag"></i>
+                <p>Tu carrito está vacío</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">$0 MXN</span>
+            </div>
+            <button class="cart-checkout-btn">FINALIZAR COMPRA POR WHATSAPP</button>
+        </div>
+    </div>
+
+    <!-- Barra superior -->
+    <div class="top-bar">
+        <div class="container">
+            <span><i class="fas fa-truck"></i> Envío gratis en compras mayores a $1,499 MXN</span>
+            <span><i class="fas fa-shield-alt"></i> Acero inoxidable y baño de oro 18K</span>
+            <div class="top-links">
+                <a href="#"><i class="fas fa-headset"></i> Atención al cliente</a>
+                <a href="cuenta.html"><i class="fas fa-user"></i> Mi cuenta</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="nav-left">
+                <button class="mobile-menu-btn" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="../index.html">INICIO</a></li>
+                    <li><a href="tienda.html" class="active">TIENDA</a></li>
+                    <li><a href="colecciones.html">COLECCIONES</a></li>
+                    <li><a href="nosotros.html">NOSOTROS</a></li>
+                    <li><a href="contacto.html">CONTACTO</a></li>                    
+                </ul>
+            </div>
+            
+            <div class="logo">                
+                <a href="../index.html" class="logo-text">                    
+                    <img src="../images/2LogoLO.png" alt="Lumina Origen" class="logo-img">
+                </a>                
+            </div>
+            
+            <div class="nav-right">
+                <a href="favoritos.html" class="nav-icon" title="Mis Favoritos"><i class="far fa-heart"></i></a>
+                <button class="nav-icon cart-btn">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </button>
+                <button class="nav-icon search-btn"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Header de Página -->
+    <header class="page-header">
+        <h1>PULSERAS</h1>
+        <p class="tagline">Piezas únicas que cuentan tu historia</p>
+        <div class="breadcrumb">
+            <a href="../index.html">Inicio</a> / <a href="tienda.html">Tienda</a> / <span>Pulseras</span>
+        </div>
+    </header>
+
+    <!-- Filtros de Categoría -->
+    <section class="category-filters" style="padding: 40px 0; background: var(--color-cream);">
+        <div class="container">
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="anillos.html" class="filter-btn active" style="padding: 12px 30px; background: var(--color-secondary); color: white; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">Anillos</a>
+                <a href="pulseras.html" class="filter-btn" style="padding: 12px 30px; background: white; color: var(--color-text); border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">Pulseras</a>
+                <a href="aretes.html" class="filter-btn" style="padding: 12px 30px; background: white; color: var(--color-text); border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">Aretes</a>
+                <a href="collares.html" class="filter-btn" style="padding: 12px 30px; background: white; color: var(--color-text); border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">Collares</a>
+                <a href="cadenas.html" class="filter-btn" style="padding: 12px 30px; background: white; color: var(--color-text); border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease;">Cadenas</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grid de Productos (Se llena automáticamente) -->
+    <section class="products-section" style="padding: 80px 0;">
+        <div class="container">
+            <div class="collection-grid" id="categoryProducts" style="grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 30px;">
+                <!-- Los productos se insertarán aquí vía JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <span class="footer-brand-main">LUMINA</span>
+                        <span class="footer-brand-sub">ORIGEN</span>
+                    </div>
+                    <p>Joyería elegante diseñada para acompañarte en cada momento especial. Tu esencia, tu brillo. tu historia...</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>TIENDA</h4>
+                    <ul>
+                        <li><a href="tienda.html">Nuevos arrivals</a></li>
+                        <li><a href="mas-vendidos.html">Más vendidos</a></li>
+                        <li><a href="collares.html">Collares</a></li>
+                        <li><a href="aretes.html">Aretes</a></li>
+                        <li><a href="anillos.html">Anillos</a></li>
+                        <li><a href="pulseras.html">Pulseras</a></li>
+                        <li><a href="cadenas.html">Cadenas</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>AYUDA</h4>
+                    <ul>
+                        <li><a href="#">Preguntas frecuentes</a></li>
+                        <li><a href="#">Envíos y entregas</a></li>
+                        <li><a href="#">Cambios y devoluciones</a></li>
+                        <li><a href="#">Guía de tallas</a></li>
+                        <li><a href="#">Cuidado de joyas</a></li>
+                        <li><a href="privacidad.html">Aviso de Privacidad</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>CONTACTO</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> hola@lumina.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Ciudad de México</li>
+                    </ul>
+                    <div class="newsletter">
+                        <p>Suscríbete a nuestro newsletter</p>
+                        <form>
+                            <input type="email" placeholder="Tu email">
+                            <button type="submit"><i class="fas fa-arrow-right"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 LUMINA ORIGEN. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modales Globales (Carrito y Búsqueda) -->
+    <div class="search-modal" id="searchModal">
+        <div class="search-modal-content">
+            <button class="search-close" id="searchClose"><i class="fas fa-times"></i></button>
+            <div class="search-header">
+                <h2>¿Qué estás buscando?</h2>
+                <div class="search-input-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="searchInput" placeholder="Busca collares, aretes, anillos..." autocomplete="off">
+                </div>
+            </div>
+            <div class="search-results" id="searchResults">
+                <div class="search-empty"><i class="fas fa-search"></i><p>Escribe para buscar productos</p></div>
+            </div>
+            <div class="search-suggestions">
+                <p>Búsquedas populares:</p>
+                <div class="suggestion-tags">
+                    <span class="suggestion-tag" data-search="collar">Collares</span>
+                    <span class="suggestion-tag" data-search="aretes">Aretes</span>
+                    <span class="suggestion-tag" data-search="anillo">Anillos</span>
+                    <span class="suggestion-tag" data-search="pulsera">Pulseras</span>
+                    <span class="suggestion-tag" data-search="pulsera">Cadenas</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="lightbox-modal" id="lightboxModal">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightboxClose"><i class="fas fa-times"></i></button>
+            <img src="" alt="Vista ampliada" class="lightbox-image" id="lightboxImage">
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+    
+    <!-- Script específico para cargar productos de esta categoría -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const categoryContainer = document.getElementById('categoryProducts');
+        
+        // 1. Filtrar solo los productos de la categoría 'ANILLOS'
+        const categoryProducts = productsDB.filter(p => p.category === 'PULSERAS');
+        
+        if (categoryProducts.length === 0) {
+            categoryContainer.innerHTML = '<p style="text-align: center; grid-column: 1/-1; font-size: 18px; color: var(--color-text-light); padding: 40px;">Próximamente más productos en esta categoría.</p>';
+            return;
+        }
+        
+        // 2. Generar las tarjetas dinámicamente
+        categoryProducts.forEach(product => {
+            const productCard = document.createElement('div');
+            productCard.className = 'collection-card gold-border-card';
+            productCard.innerHTML = `
+                <div class="unique-badge">✦ PIEZA ÚNICA ✦</div>
+                <img src="${product.image}" alt="${product.name}" class="product-image-zoom" onerror="this.src='https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&q=80'">
+                <div class="collection-info">
+                    <h3>${product.name.toUpperCase()}</h3>
+                    <p style="font-size: 12px; color: var(--color-text-light); margin: 8px 0;">${product.description || 'Joyería elegante y duradera'}</p>
+                    <p style="font-weight: 700; color: var(--color-primary); margin: 10px 0; font-size: 18px;">$${product.price} MXN</p>
+                    <button class="btn btn-primary add-to-cart-real" 
+                            data-id="${product.id}" 
+                            data-name="${product.name}" 
+                            data-price="${product.price}" 
+                            data-image="${product.image}">
+                        AGREGAR AL CARRITO
+                    </button>
+                </div>
+            `;
+            categoryContainer.appendChild(productCard);
+        });
+
+        // 3. Re-activar eventos del carrito para los elementos dinámicos
+        document.querySelectorAll('.add-to-cart-real').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const id = btn.getAttribute('data-id');
+                const name = btn.getAttribute('data-name');
+                const price = parseInt(btn.getAttribute('data-price'));
+                const image = btn.getAttribute('data-image');
+                
+                let items = JSON.parse(localStorage.getItem('luminaCartItems')) || [];
+                const existingItem = items.find(item => item.id === id);
+                
+                if (existingItem) {
+                    existingItem.qty += 1;
+                } else {
+                    items.push({ id, name, price, image, qty: 1 });
+                }
+                
+                localStorage.setItem('luminaCartItems', JSON.stringify(items));
+                
+                // Actualizar UI del carrito
+                if (typeof updateCartUI === 'function') updateCartUI();
+                if (typeof renderCart === 'function') renderCart();
+                
+                // Feedback visual
+                const originalHTML = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-check"></i> ¡AGREGADO!';
+                btn.style.backgroundColor = 'var(--color-secondary)';
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.style.backgroundColor = '';
+                }, 1500);
+            });
+        });
+
+        // 4. Re-activar Lightbox para las nuevas imágenes
+        document.querySelectorAll('.collection-card img, .product-image-zoom').forEach(img => {
+            img.addEventListener('click', (e) => {
+                e.preventDefault();
+                const imageSrc = img.src;
+                const card = img.closest('.collection-card');
+                const caption = card ? card.querySelector('h3')?.textContent : '';
+                
+                const lightboxModal = document.getElementById('lightboxModal');
+                const lightboxImage = document.getElementById('lightboxImage');
+                const lightboxCaption = document.getElementById('lightboxCaption');
+                
+                if (lightboxModal && lightboxImage) {
+                    lightboxImage.src = imageSrc;
+                    if (lightboxCaption && caption) lightboxCaption.textContent = caption;
+                    lightboxModal.classList.add('open');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+    });
+    </script>
+</body>
+</html>
