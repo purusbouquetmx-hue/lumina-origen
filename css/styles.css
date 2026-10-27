@@ -1878,3 +1878,48 @@ img {
     letter-spacing: 1px;
     font-weight: 600;
 }
+/* ===== BOTÓN PARA REGRESAR AL HUB CENTRAL (LUMINA) ===== */
+.btn-back-to-hub {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(26, 21, 16, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    color: #D4AF37; /* Dorado Lumina */
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-decoration: none;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.4s ease;
+    opacity: 0.8;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+}
+
+.btn-back-to-hub:hover {
+    opacity: 1;
+    background: rgba(212, 175, 55, 0.9);
+    color: #1a1510;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+    letter-spacing: 3px;
+}
+
+.btn-back-to-hub .hub-icon {
+    font-size: 1rem;
+    transition: transform 0.4s ease;
+}
+
+.btn-back-to-hub:hover .hub-icon { transform: rotate(360deg); }
+
+@media (max-width: 768px) {
+    .btn-back-to-hub .hub-text { display: none; }
+    .btn-back-to-hub { padding: 10px 14px; }
+}
